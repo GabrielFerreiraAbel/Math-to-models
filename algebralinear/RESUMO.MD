@@ -661,7 +661,7 @@ Para matrizes quadradas $n \times n$, estas ideias se conectam:
 
 ```mermaid
 flowchart TD
-    A[Posto cheio: rank(A) = n] <--> B[det(A) diferente de 0]
+    A["Posto cheio: rank(A) = n"] <--> B["det(A) diferente de 0"]
     B <--> C[A é invertível]
     C <--> D["A x = b tem solução única para todo b"]
     D <--> A
@@ -1550,7 +1550,7 @@ Então $X^T X$ não é uma fórmula mágica.
 flowchart TD
     A[Produto interno mede sobreposição] --> B[Ortogonalidade = sobreposição zero]
     B --> C[Projeção = erro ortogonal ao subespaço]
-    C --> D[Regressão linear = projeção de y em col(X)]
+    C --> D["Regressão linear = projeção de y em col(X)"]
     D --> E["X^T e = 0"]
     E --> F["X^T X w = X^T y"]
 ```
