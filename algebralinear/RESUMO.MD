@@ -12,8 +12,8 @@
 
 Em Machine Learning, quase tudo passa por isso:
 
-- uma camada linear de rede neural é uma transformação \(Wx\);
-- regressão linear é uma projeção no espaço-coluna de \(X\);
+- uma camada linear de rede neural é uma transformação $Wx$;
+- regressão linear é uma projeção no espaço-coluna de $X$;
 - PCA encontra direções principais via autovalores/autovetores;
 - covariância é uma matriz simétrica que mede como variáveis variam juntas;
 - regularização controla problemas de posto, redundância e instabilidade;
@@ -68,21 +68,21 @@ Em geometria, um vetor é uma seta com:
 
 Exemplo:
 
-\[
+$$
 v =
 \begin{bmatrix}
 3 \\
 2
 \end{bmatrix}
-\]
+$$
 
-representa uma seta que anda 3 unidades no eixo \(x\) e 2 unidades no eixo \(y\).
+representa uma seta que anda 3 unidades no eixo $x$ e 2 unidades no eixo $y$.
 
 ### 1.2 Vetor como lista de atributos
 
 Em ML, um vetor pode representar uma observação:
 
-\[
+$$
 x =
 \begin{bmatrix}
 \text{idade} \\
@@ -90,7 +90,7 @@ x =
 \text{score} \\
 \text{gasto médio}
 \end{bmatrix}
-\]
+$$
 
 Ou seja: o mesmo objeto matemático pode ser uma seta no espaço ou uma linha de dados.
 
@@ -105,21 +105,21 @@ Essa dupla interpretação é essencial:
 
 Uma combinação linear de vetores é uma soma ponderada:
 
-\[
+$$
 c_1v_1 + c_2v_2 + \dots + c_kv_k
-\]
+$$
 
 O **span** de um conjunto de vetores é o conjunto de todos os vetores que podem ser gerados por combinações lineares deles:
 
-\[
+$$
 \text{span}(v_1, v_2, \dots, v_k)
-\]
+$$
 
 ### Exemplo
 
 Se:
 
-\[
+$$
 v_1 =
 \begin{bmatrix}
 1 \\
@@ -131,17 +131,17 @@ v_2 =
 0 \\
 1
 \end{bmatrix}
-\]
+$$
 
 então:
 
-\[
+$$
 \text{span}(v_1, v_2) = \mathbb{R}^2
-\]
+$$
 
 porque qualquer vetor do plano pode ser escrito como:
 
-\[
+$$
 \begin{bmatrix}
 x \\
 y
@@ -158,21 +158,21 @@ y
 0 \\
 1
 \end{bmatrix}
-\]
+$$
 
 ### Conexão com ML
 
-Se \(X\) é uma matriz de dados, suas colunas são features. O espaço-coluna de \(X\) contém todas as combinações lineares possíveis dessas features.
+Se $X$ é uma matriz de dados, suas colunas são features. O espaço-coluna de $X$ contém todas as combinações lineares possíveis dessas features.
 
 Quando fazemos regressão linear:
 
-\[
+$$
 \hat{y} = Xw
-\]
+$$
 
 estamos dizendo:
 
-> A previsão \(\hat{y}\) precisa morar no espaço gerado pelas colunas de \(X\).
+> A previsão $\hat{y}$ precisa morar no espaço gerado pelas colunas de $X$.
 
 Isso será a base da projeção e dos mínimos quadrados.
 
@@ -182,25 +182,25 @@ Isso será a base da projeção e dos mínimos quadrados.
 
 Uma transformação linear é uma função entre espaços vetoriais que preserva a estrutura linear.
 
-Formalmente, uma transformação \(T\) é linear se satisfaz:
+Formalmente, uma transformação $T$ é linear se satisfaz:
 
 ### 3.1 Aditividade
 
-\[
+$$
 T(u + v) = T(u) + T(v)
-\]
+$$
 
 ### 3.2 Homogeneidade
 
-\[
+$$
 T(cu) = cT(u)
-\]
+$$
 
 Juntas, essas duas propriedades dizem:
 
-\[
+$$
 T(c_1v_1 + c_2v_2) = c_1T(v_1) + c_2T(v_2)
-\]
+$$
 
 Ou seja:
 
@@ -214,17 +214,17 @@ Uma matriz não é só uma tabela de números. Ela representa uma transformaçã
 
 Se:
 
-\[
+$$
 A =
 \begin{bmatrix}
 2 & 1 \\
 1 & 2
 \end{bmatrix}
-\]
+$$
 
-então aplicar \(A\) a um vetor \(x\) significa transformar esse vetor:
+então aplicar $A$ a um vetor $x$ significa transformar esse vetor:
 
-\[
+$$
 Ax =
 \begin{bmatrix}
 2 & 1 \\
@@ -239,13 +239,13 @@ x_2
 2x_1 + x_2 \\
 x_1 + 2x_2
 \end{bmatrix}
-\]
+$$
 
 ### 4.1 As colunas dizem para onde vão os vetores-base
 
-Os vetores-base canônicos em \(\mathbb{R}^2\) são:
+Os vetores-base canônicos em $\mathbb{R}^2$ são:
 
-\[
+$$
 \hat{i} =
 \begin{bmatrix}
 1 \\
@@ -257,40 +257,40 @@ Os vetores-base canônicos em \(\mathbb{R}^2\) são:
 0 \\
 1
 \end{bmatrix}
-\]
+$$
 
-Aplicando \(A\):
+Aplicando $A$:
 
-\[
+$$
 A\hat{i}
 =
 \begin{bmatrix}
 2 \\
 1
 \end{bmatrix}
-\]
+$$
 
-\[
+$$
 A\hat{j}
 =
 \begin{bmatrix}
 1 \\
 2
 \end{bmatrix}
-\]
+$$
 
-Esses resultados são exatamente as colunas de \(A\).
+Esses resultados são exatamente as colunas de $A$.
 
 Logo:
 
-\[
+$$
 A =
 \begin{bmatrix}
 | & | \\
 A\hat{i} & A\hat{j} \\
 | & |
 \end{bmatrix}
-\]
+$$
 
 > **As colunas da matriz são os destinos dos vetores-base.**
 
@@ -298,13 +298,13 @@ Essa é uma das ideias mais importantes de toda Álgebra Linear.
 
 ---
 
-## 5. Por que \(Wx + b\) não é linear?
+## 5. Por que $Wx + b$ não é linear?
 
 Em ML, aparece muito:
 
-\[
+$$
 f(x) = Wx + b
-\]
+$$
 
 Essa transformação é chamada **afim**, não linear.
 
@@ -312,37 +312,37 @@ Por quê?
 
 Porque uma transformação linear precisa preservar a origem:
 
-\[
+$$
 T(0) = 0
-\]
+$$
 
 Mas:
 
-\[
+$$
 f(0) = W0 + b = b
-\]
+$$
 
-Se \(b \neq 0\), a origem vai para \(b\), não para zero.
+Se $b \neq 0$, a origem vai para $b$, não para zero.
 
 Então:
 
-- \(Wx\) é linear;
-- \(Wx + b\) é afim;
-- o bias \(b\) desloca a transformação.
+- $Wx$ é linear;
+- $Wx + b$ é afim;
+- o bias $b$ desloca a transformação.
 
 ### Conexão com redes neurais
 
 Uma camada densa geralmente faz:
 
-\[
+$$
 z = Wx + b
-\]
+$$
 
 Depois aplica uma não-linearidade:
 
-\[
+$$
 a = \sigma(z)
-\]
+$$
 
 Sem o bias, a camada ficaria presa a transformações que mantêm a origem fixa. Com o bias, ela ganha liberdade para deslocar hiperplanos de decisão.
 
@@ -363,15 +363,15 @@ A interpretação geométrica é a mais importante.
 
 ## 7. Composição de transformações
 
-Se \(A\) e \(B\) são matrizes, então:
+Se $A$ e $B$ são matrizes, então:
 
-\[
+$$
 (AB)x = A(Bx)
-\]
+$$
 
 Isso significa:
 
-> Primeiro aplicamos \(B\), depois aplicamos \(A\).
+> Primeiro aplicamos $B$, depois aplicamos $A$.
 
 A leitura é da direita para a esquerda.
 
@@ -385,15 +385,15 @@ flowchart LR
 
 Logo:
 
-\[
+$$
 AB
-\]
+$$
 
 representa a transformação composta:
 
-\[
+$$
 B \text{ primeiro, } A \text{ depois.}
-\]
+$$
 
 ---
 
@@ -401,7 +401,7 @@ B \text{ primeiro, } A \text{ depois.}
 
 Se:
 
-\[
+$$
 A =
 \begin{bmatrix}
 a_{11} & a_{12} \\
@@ -413,11 +413,11 @@ B =
 b_{11} & b_{12} \\
 b_{21} & b_{22}
 \end{bmatrix}
-\]
+$$
 
 então:
 
-\[
+$$
 AB =
 \begin{bmatrix}
 a_{11}b_{11} + a_{12}b_{21}
@@ -428,18 +428,18 @@ a_{21}b_{11} + a_{22}b_{21}
 &
 a_{21}b_{12} + a_{22}b_{22}
 \end{bmatrix}
-\]
+$$
 
 Cada entrada é um produto interno entre:
 
-- uma linha de \(A\);
-- uma coluna de \(B\).
+- uma linha de $A$;
+- uma coluna de $B$.
 
 Ou seja:
 
-\[
+$$
 (AB)_{ij} = \text{linha } i \text{ de } A \cdot \text{coluna } j \text{ de } B
-\]
+$$
 
 ---
 
@@ -447,9 +447,9 @@ Ou seja:
 
 Em geral:
 
-\[
+$$
 AB \neq BA
-\]
+$$
 
 Porque mudar a ordem muda a composição.
 
@@ -464,27 +464,27 @@ Essas operações podem produzir resultados diferentes.
 
 Considere:
 
-\[
+$$
 A =
 \begin{bmatrix}
 2 & 0 \\
 0 & 1
 \end{bmatrix}
-\]
+$$
 
-um esticamento no eixo \(x\), e:
+um esticamento no eixo $x$, e:
 
-\[
+$$
 B =
 \begin{bmatrix}
 0 & -1 \\
 1 & 0
 \end{bmatrix}
-\]
+$$
 
-uma rotação de \(90^\circ\).
+uma rotação de $90^\circ$.
 
-Então \(AB\) e \(BA\) geralmente não produzem o mesmo efeito.
+Então $AB$ e $BA$ geralmente não produzem o mesmo efeito.
 
 > A ordem das transformações importa porque a geometria intermediária muda.
 
@@ -492,9 +492,9 @@ Então \(AB\) e \(BA\) geralmente não produzem o mesmo efeito.
 
 Em redes neurais profundas:
 
-\[
+$$
 W_3 W_2 W_1 x
-\]
+$$
 
 a ordem das camadas importa. Trocar duas matrizes muda completamente a função aprendida.
 
@@ -508,25 +508,25 @@ O determinante mede quanto uma transformação linear escala área, volume ou hi
 
 Em 2D:
 
-\[
+$$
 |\det(A)|
-\]
+$$
 
 mede o fator de escala de área.
 
 Em 3D:
 
-\[
+$$
 |\det(A)|
-\]
+$$
 
 mede o fator de escala de volume.
 
 O sinal indica orientação:
 
-- \(\det(A) > 0\): preserva orientação;
-- \(\det(A) < 0\): inverte orientação;
-- \(\det(A) = 0\): colapsa o espaço em dimensão menor.
+- $\det(A) > 0$: preserva orientação;
+- $\det(A) < 0$: inverte orientação;
+- $\det(A) = 0$: colapsa o espaço em dimensão menor.
 
 ---
 
@@ -534,25 +534,25 @@ O sinal indica orientação:
 
 Se:
 
-\[
+$$
 A =
 \begin{bmatrix}
 2 & 0 \\
 0 & 3
 \end{bmatrix}
-\]
+$$
 
 então:
 
-\[
+$$
 \det(A) = 6
-\]
+$$
 
-A transformação estica o eixo \(x\) por 2 e o eixo \(y\) por 3. A área escala por:
+A transformação estica o eixo $x$ por 2 e o eixo $y$ por 3. A área escala por:
 
-\[
+$$
 2 \cdot 3 = 6
-\]
+$$
 
 Se um quadrado tinha área 1, depois da transformação vira um retângulo de área 6.
 
@@ -562,17 +562,17 @@ Se um quadrado tinha área 1, depois da transformação vira um retângulo de á
 
 Se:
 
-\[
+$$
 A =
 \begin{bmatrix}
 1 & 2 \\
 2 & 4
 \end{bmatrix}
-\]
+$$
 
 as colunas são dependentes:
 
-\[
+$$
 \begin{bmatrix}
 2 \\
 4
@@ -583,13 +583,13 @@ as colunas são dependentes:
 1 \\
 2
 \end{bmatrix}
-\]
+$$
 
 Então o plano é colapsado numa linha.
 
-\[
+$$
 \det(A) = 0
-\]
+$$
 
 Interpretação:
 
@@ -599,32 +599,32 @@ Interpretação:
 
 ## 13. Espaço-coluna
 
-O espaço-coluna de uma matriz \(A\), escrito \(\text{col}(A)\), é o span de suas colunas.
+O espaço-coluna de uma matriz $A$, escrito $\text{col}(A)$, é o span de suas colunas.
 
 Se:
 
-\[
+$$
 A =
 \begin{bmatrix}
 | & | \\
 a_1 & a_2 \\
 | & |
 \end{bmatrix}
-\]
+$$
 
 então:
 
-\[
+$$
 \text{col}(A) = \text{span}(a_1, a_2)
-\]
+$$
 
 É o conjunto de todos os vetores que podem ser escritos como:
 
-\[
+$$
 Ax
-\]
+$$
 
-para algum vetor \(x\).
+para algum vetor $x$.
 
 Logo:
 
@@ -636,17 +636,17 @@ Logo:
 
 O posto, ou rank, é a dimensão do espaço-coluna:
 
-\[
+$$
 \text{rank}(A) = \dim(\text{col}(A))
-\]
+$$
 
 Em linguagem geométrica:
 
-- posto 2 em \(\mathbb{R}^2\): a matriz preenche o plano;
-- posto 1 em \(\mathbb{R}^2\): a matriz colapsa tudo numa linha;
+- posto 2 em $\mathbb{R}^2$: a matriz preenche o plano;
+- posto 1 em $\mathbb{R}^2$: a matriz colapsa tudo numa linha;
 - posto 0: tudo vai para zero.
 
-Em \(\mathbb{R}^3\):
+Em $\mathbb{R}^3$:
 
 - posto 3: preenche volume;
 - posto 2: colapsa num plano;
@@ -657,7 +657,7 @@ Em \(\mathbb{R}^3\):
 
 ## 15. Triângulo fundamental: posto, determinante e inversa
 
-Para matrizes quadradas \(n \times n\), estas ideias se conectam:
+Para matrizes quadradas $n \times n$, estas ideias se conectam:
 
 ```mermaid
 flowchart TD
@@ -669,7 +669,7 @@ flowchart TD
 
 Ou seja:
 
-\[
+$$
 \boxed{
 \text{posto cheio}
 \Longleftrightarrow
@@ -677,11 +677,11 @@ Ou seja:
 \Longleftrightarrow
 A^{-1} \text{ existe}
 }
-\]
+$$
 
 ### Interpretação geométrica
 
-Se \(\det(A) \neq 0\), a matriz não colapsa o espaço.  
+Se $\det(A) \neq 0$, a matriz não colapsa o espaço.  
 Se ela não colapsa o espaço, cada ponto transformado veio de um único ponto original.  
 Se cada ponto tem origem única, dá para desfazer a transformação.  
 Logo, existe inversa.
@@ -690,32 +690,32 @@ Logo, existe inversa.
 
 ## 16. Inversa
 
-A inversa de \(A\), escrita \(A^{-1}\), é a transformação que desfaz \(A\).
+A inversa de $A$, escrita $A^{-1}$, é a transformação que desfaz $A$.
 
-\[
+$$
 A^{-1} A = I
-\]
+$$
 
-\[
+$$
 A A^{-1} = I
-\]
+$$
 
 Se:
 
-\[
+$$
 v = A x
-\]
+$$
 
 então:
 
-\[
+$$
 x = A^{-1} v
-\]
+$$
 
 ### Interpretação
 
-- \(A\) leva \(x\) até \(v\);
-- \(A^{-1}\) leva \(v\) de volta até \(x\).
+- $A$ leva $x$ até $v$;
+- $A^{-1}$ leva $v$ de volta até $x$.
 
 ```mermaid
 flowchart LR
@@ -729,19 +729,19 @@ flowchart LR
 
 ## 17. Quando não existe inversa?
 
-A inversa não existe quando \(A\) colapsa dimensões.
+A inversa não existe quando $A$ colapsa dimensões.
 
 Se dois vetores diferentes vão para o mesmo lugar, não dá para saber de onde o resultado veio.
 
 Exemplo:
 
-\[
+$$
 A =
 \begin{bmatrix}
 1 & 2 \\
 2 & 4
 \end{bmatrix}
-\]
+$$
 
 Como as colunas são dependentes, o plano vira uma linha.
 
@@ -761,23 +761,23 @@ A transposta de uma matriz troca linhas por colunas.
 
 Se:
 
-\[
+$$
 A =
 \begin{bmatrix}
 1 & 2 \\
 3 & 4
 \end{bmatrix}
-\]
+$$
 
 então:
 
-\[
+$$
 A^T =
 \begin{bmatrix}
 1 & 3 \\
 2 & 4
 \end{bmatrix}
-\]
+$$
 
 Geometricamente, em termos de tabela, parece um “espelho pela diagonal principal”.
 
@@ -787,19 +787,19 @@ Geometricamente, em termos de tabela, parece um “espelho pela diagonal princip
 
 Uma matriz é simétrica se:
 
-\[
+$$
 A = A^T
-\]
+$$
 
 Exemplo:
 
-\[
+$$
 A =
 \begin{bmatrix}
 2 & 1 \\
 1 & 3
 \end{bmatrix}
-\]
+$$
 
 é simétrica.
 
@@ -808,15 +808,15 @@ Matrizes simétricas aparecem muito em ML:
 - matriz de covariância;
 - kernel matrix;
 - Hessiana;
-- \(X^T X\).
+- $X^T X$.
 
-### Por que \(X^T X\) é simétrica?
+### Por que $X^T X$ é simétrica?
 
-\[
+$$
 (X^T X)^T = X^T (X^T)^T = X^T X
-\]
+$$
 
-Logo, \(X^T X\) é sempre simétrica.
+Logo, $X^T X$ é sempre simétrica.
 
 Isso importa porque matrizes simétricas têm propriedades espectrais muito boas:
 
@@ -831,15 +831,15 @@ Isso importa porque matrizes simétricas têm propriedades espectrais muito boas
 
 A transposta de um produto inverte a ordem:
 
-\[
+$$
 (AB)^T = B^T A^T
-\]
+$$
 
 Por quê?
 
-Porque \(AB\) significa:
+Porque $AB$ significa:
 
-> primeiro \(B\), depois \(A\).
+> primeiro $B$, depois $A$.
 
 Ao transpor, a ação “volta” atravessando as transformações na ordem inversa.
 
@@ -855,36 +855,36 @@ A inversão da ordem é uma sombra algébrica da regra da cadeia.
 
 Um vetor coluna:
 
-\[
+$$
 x =
 \begin{bmatrix}
 x_1 \\
 x_2
 \end{bmatrix}
-\]
+$$
 
 pode ser visto como uma seta.
 
 Sua transposta:
 
-\[
+$$
 x^T =
 \begin{bmatrix}
 x_1 & x_2
 \end{bmatrix}
-\]
+$$
 
 pode ser vista como uma transformação que recebe outro vetor e devolve um número:
 
-\[
+$$
 x^T y
-\]
+$$
 
 Ou seja:
 
-\[
+$$
 x^T : \mathbb{R}^n \to \mathbb{R}
-\]
+$$
 
 > A transposta transforma um vetor-seta em uma máquina de medir alinhamento.
 
@@ -894,15 +894,15 @@ Essa é a ponte para produto interno.
 
 ## 22. Produto interno
 
-O produto interno padrão entre \(x\) e \(y\) é:
+O produto interno padrão entre $x$ e $y$ é:
 
-\[
+$$
 x^T y
-\]
+$$
 
 Se:
 
-\[
+$$
 x =
 \begin{bmatrix}
 x_1 \\
@@ -914,19 +914,19 @@ y =
 y_1 \\
 y_2
 \end{bmatrix}
-\]
+$$
 
 então:
 
-\[
+$$
 x^T y = x_1 y_1 + x_2 y_2
-\]
+$$
 
 Geometricamente:
 
-\[
+$$
 x^T y = \|x\| \|y\| \cos(\theta)
-\]
+$$
 
 Portanto, o produto interno mede:
 
@@ -938,55 +938,55 @@ Portanto, o produto interno mede:
 
 ## 23. Interpretação do produto interno
 
-\[
+$$
 x^T y
-\]
+$$
 
 pode ser lido como:
 
-> O vetor \(x\), transformado em medidor \(x^T\), mede quanto de \(y\) existe na direção de \(x\).
+> O vetor $x$, transformado em medidor $x^T$, mede quanto de $y$ existe na direção de $x$.
 
 Casos importantes:
 
 ### Mesmo sentido
 
-Se \(\theta = 0^\circ\):
+Se $\theta = 0^\circ$:
 
-\[
+$$
 \cos(0) = 1
-\]
+$$
 
-\[
+$$
 x^T y = \|x\| \|y\|
-\]
+$$
 
 Máxima sobreposição positiva.
 
 ### Perpendicular
 
-Se \(\theta = 90^\circ\):
+Se $\theta = 90^\circ$:
 
-\[
+$$
 \cos(90^\circ) = 0
-\]
+$$
 
-\[
+$$
 x^T y = 0
-\]
+$$
 
 Sem sobreposição.
 
 ### Sentidos opostos
 
-Se \(\theta = 180^\circ\):
+Se $\theta = 180^\circ$:
 
-\[
+$$
 \cos(180^\circ) = -1
-\]
+$$
 
-\[
+$$
 x^T y = -\|x\| \|y\|
-\]
+$$
 
 Sobreposição negativa.
 
@@ -998,9 +998,9 @@ Sobreposição negativa.
 
 Dois vetores são ortogonais quando seu produto interno é zero:
 
-\[
+$$
 x^T y = 0
-\]
+$$
 
 Geometricamente, isso significa que eles são perpendiculares.
 
@@ -1020,17 +1020,17 @@ Se dois vetores estão muito alinhados, eles carregam informação parecida.
 
 Se:
 
-\[
+$$
 x^T y
-\]
+$$
 
 é grande, existe muita sobreposição.
 
 Se:
 
-\[
+$$
 x^T y = 0
-\]
+$$
 
 não existe sobreposição linear.
 
@@ -1047,7 +1047,7 @@ Se duas features são muito correlacionadas, elas apontam em direções parecida
 
 Isso causa redundância.
 
-Em regressão, redundância entre colunas de \(X\) aparece como multicolinearidade.
+Em regressão, redundância entre colunas de $X$ aparece como multicolinearidade.
 
 ---
 
@@ -1060,21 +1060,21 @@ Uma base ortonormal é um conjunto de vetores que são:
 
 Formalmente:
 
-\[
+$$
 q_i^T q_j =
 \begin{cases}
 1, & i=j \\
 0, & i\neq j
 \end{cases}
-\]
+$$
 
 Em matriz:
 
-\[
+$$
 Q^T Q = I
-\]
+$$
 
-Isso significa que as colunas de \(Q\) formam uma base ortonormal.
+Isso significa que as colunas de $Q$ formam uma base ortonormal.
 
 ### Por que isso é tão bom?
 
@@ -1090,17 +1090,17 @@ Porque em uma base ortonormal:
 
 ## 27. Matriz ortogonal
 
-Uma matriz \(Q\) é ortogonal se:
+Uma matriz $Q$ é ortogonal se:
 
-\[
+$$
 Q^T Q = I
-\]
+$$
 
 Isso implica:
 
-\[
+$$
 Q^{-1} = Q^T
-\]
+$$
 
 Ou seja:
 
@@ -1112,11 +1112,11 @@ Elas não esticam nem comprimem o espaço. Apenas mudam a orientação.
 
 ---
 
-## 28. Ortogonalidade e \(X^T X\)
+## 28. Ortogonalidade e $X^T X$
 
-Se \(X\) tem colunas \(x_1, x_2, \dots, x_p\), então:
+Se $X$ tem colunas $x_1, x_2, \dots, x_p$, então:
 
-\[
+$$
 X^T X =
 \begin{bmatrix}
 x_1^T x_1 & x_1^T x_2 & \cdots & x_1^T x_p \\
@@ -1124,29 +1124,29 @@ x_2^T x_1 & x_2^T x_2 & \cdots & x_2^T x_p \\
 \vdots & \vdots & \ddots & \vdots \\
 x_p^T x_1 & x_p^T x_2 & \cdots & x_p^T x_p
 \end{bmatrix}
-\]
+$$
 
-Ou seja, \(X^T X\) é uma matriz de produtos internos entre features.
+Ou seja, $X^T X$ é uma matriz de produtos internos entre features.
 
 Na diagonal:
 
-\[
+$$
 x_i^T x_i = \|x_i\|^2
-\]
+$$
 
 Fora da diagonal:
 
-\[
+$$
 x_i^T x_j
-\]
+$$
 
 mede a sobreposição entre features.
 
 ### Interpretação
 
-- Se as colunas são ortogonais, \(X^T X\) é diagonal.
-- Se as colunas são ortonormais, \(X^T X = I\).
-- Se as colunas são redundantes, \(X^T X\) fica mal condicionado ou singular.
+- Se as colunas são ortogonais, $X^T X$ é diagonal.
+- Se as colunas são ortonormais, $X^T X = I$.
+- Se as colunas são redundantes, $X^T X$ fica mal condicionado ou singular.
 
 Isso conecta:
 
@@ -1165,21 +1165,21 @@ flowchart LR
 
 ## 29. Produto vetorial
 
-O produto vetorial é uma operação específica de \(\mathbb{R}^3\):
+O produto vetorial é uma operação específica de $\mathbb{R}^3$:
 
-\[
+$$
 a \times b
-\]
+$$
 
-Ele devolve um vetor perpendicular a \(a\) e \(b\).
+Ele devolve um vetor perpendicular a $a$ e $b$.
 
 ### Magnitude
 
-\[
+$$
 \|a \times b\| = \|a\|\|b\|\sin(\theta)
-\]
+$$
 
-Essa magnitude é a área do paralelogramo formado por \(a\) e \(b\).
+Essa magnitude é a área do paralelogramo formado por $a$ e $b$.
 
 ### Direção
 
@@ -1208,95 +1208,95 @@ Projeção responde:
 
 > Quanto de um vetor mora na direção de outro?
 
-Se temos um vetor \(b\) e queremos projetá-lo na direção de \(a\), buscamos a sombra de \(b\) sobre a linha gerada por \(a\):
+Se temos um vetor $b$ e queremos projetá-lo na direção de $a$, buscamos a sombra de $b$ sobre a linha gerada por $a$:
 
-\[
+$$
 \text{span}(a)
-\]
+$$
 
-A projeção precisa estar nessa linha, então ela é um múltiplo de \(a\):
+A projeção precisa estar nessa linha, então ela é um múltiplo de $a$:
 
-\[
+$$
 \text{proj}_a(b) = \hat{x} a
-\]
+$$
 
 A pergunta vira:
 
-> Qual é o número \(\hat{x}\)?
+> Qual é o número $\hat{x}$?
 
 ---
 
 ## 31. A condição geométrica da projeção
 
-O erro entre \(b\) e sua projeção é:
+O erro entre $b$ e sua projeção é:
 
-\[
+$$
 e = b - \hat{x} a
-\]
+$$
 
 A projeção correta é aquela em que o erro é perpendicular à linha.
 
 Ou seja:
 
-\[
+$$
 a^T e = 0
-\]
+$$
 
-Substituindo \(e\):
+Substituindo $e$:
 
-\[
+$$
 a^T(b - \hat{x} a) = 0
-\]
+$$
 
 Abrindo:
 
-\[
+$$
 a^T b - \hat{x} a^T a = 0
-\]
+$$
 
 Logo:
 
-\[
+$$
 \hat{x} = \frac{a^T b}{a^T a}
-\]
+$$
 
 E portanto:
 
-\[
+$$
 \boxed{
 \text{proj}_a(b) =
 \frac{a^T b}{a^T a} a
 }
-\]
+$$
 
 ---
 
 ## 32. Interpretação da fórmula
 
-\[
+$$
 \text{proj}_a(b) =
 \frac{a^T b}{a^T a} a
-\]
+$$
 
 Peça por peça:
 
 ### Numerador
 
-\[
+$$
 a^T b
-\]
+$$
 
-mede a sobreposição de \(b\) na direção de \(a\).
+mede a sobreposição de $b$ na direção de $a$.
 
 ### Denominador
 
-\[
+$$
 a^T a = \|a\|^2
-\]
+$$
 
-normaliza pelo tamanho de \(a\).
+normaliza pelo tamanho de $a$.
 
-### Multiplicação final por \(a\)
+### Multiplicação final por $a$
 
 Transforma o coeficiente escalar de volta em vetor.
 
@@ -1304,23 +1304,23 @@ Transforma o coeficiente escalar de volta em vetor.
 
 ## 33. Caso especial: vetor unitário
 
-Se \(a\) é unitário:
+Se $a$ é unitário:
 
-\[
+$$
 \|a\| = 1
-\]
+$$
 
 então:
 
-\[
+$$
 a^T a = 1
-\]
+$$
 
 e a projeção vira:
 
-\[
+$$
 \text{proj}_a(b) = (a^T b)a
-\]
+$$
 
 Muito mais simples.
 
@@ -1332,7 +1332,7 @@ Por isso bases ortonormais são tão poderosas.
 
 Se:
 
-\[
+$$
 a =
 \begin{bmatrix}
 2 \\
@@ -1344,35 +1344,35 @@ b =
 3 \\
 4
 \end{bmatrix}
-\]
+$$
 
 então:
 
-\[
+$$
 a^T b = 2 \cdot 3 + 1 \cdot 4 = 10
-\]
+$$
 
-\[
+$$
 a^T a = 2^2 + 1^2 = 5
-\]
+$$
 
-\[
+$$
 \hat{x} = \frac{10}{5} = 2
-\]
+$$
 
 Logo:
 
-\[
+$$
 \text{proj}_a(b) = 2a =
 \begin{bmatrix}
 4 \\
 2
 \end{bmatrix}
-\]
+$$
 
 O erro é:
 
-\[
+$$
 e = b - \text{proj}_a(b)
 =
 \begin{bmatrix}
@@ -1389,11 +1389,11 @@ e = b - \text{proj}_a(b)
 -1 \\
 2
 \end{bmatrix}
-\]
+$$
 
 Verificando ortogonalidade:
 
-\[
+$$
 a^T e =
 \begin{bmatrix}
 2 & 1
@@ -1404,9 +1404,9 @@ a^T e =
 \end{bmatrix}
 =
 -2 + 2 = 0
-\]
+$$
 
-O erro é perpendicular à direção de \(a\).
+O erro é perpendicular à direção de $a$.
 
 ---
 
@@ -1416,111 +1416,111 @@ O erro é perpendicular à direção de \(a\).
 
 Na projeção sobre uma única direção:
 
-\[
+$$
 \text{proj}_a(b) = \hat{x} a
-\]
+$$
 
-Na regressão linear, projetamos sobre o espaço-coluna de uma matriz \(X\).
+Na regressão linear, projetamos sobre o espaço-coluna de uma matriz $X$.
 
 A previsão é:
 
-\[
+$$
 \hat{y} = X\hat{w}
-\]
+$$
 
 Isso significa:
 
-> \(\hat{y}\) é uma combinação linear das colunas de \(X\).
+> $\hat{y}$ é uma combinação linear das colunas de $X$.
 
 Logo:
 
-\[
+$$
 \hat{y} \in \text{col}(X)
-\]
+$$
 
 ---
 
 ## 36. O erro na regressão
 
-O vetor alvo é \(y\), ou \(b\).
+O vetor alvo é $y$, ou $b$.
 
 A previsão é:
 
-\[
+$$
 X\hat{w}
-\]
+$$
 
 O erro/resíduo é:
 
-\[
+$$
 e = y - X\hat{w}
-\]
+$$
 
 O melhor ajuste de mínimos quadrados é aquele em que esse erro tem o menor comprimento possível.
 
-Geometricamente, isso ocorre quando o erro é ortogonal ao espaço-coluna de \(X\).
+Geometricamente, isso ocorre quando o erro é ortogonal ao espaço-coluna de $X$.
 
 ---
 
 ## 37. Condição de ortogonalidade
 
-O erro deve ser ortogonal a todas as colunas de \(X\).
+O erro deve ser ortogonal a todas as colunas de $X$.
 
-Se \(X\) tem colunas \(x_1, x_2, \dots, x_p\), queremos:
+Se $X$ tem colunas $x_1, x_2, \dots, x_p$, queremos:
 
-\[
+$$
 x_1^T e = 0
-\]
+$$
 
-\[
+$$
 x_2^T e = 0
-\]
+$$
 
-\[
+$$
 \vdots
-\]
+$$
 
-\[
+$$
 x_p^T e = 0
-\]
+$$
 
 Escrevendo tudo de uma vez:
 
-\[
+$$
 X^T e = 0
-\]
+$$
 
-Substituindo \(e = y - X\hat{w}\):
+Substituindo $e = y - X\hat{w}$:
 
-\[
+$$
 X^T (y - X\hat{w}) = 0
-\]
+$$
 
 Abrindo:
 
-\[
+$$
 X^T y - X^T X \hat{w} = 0
-\]
+$$
 
 Logo:
 
-\[
+$$
 \boxed{
 X^T X \hat{w} = X^T y
 }
-\]
+$$
 
 Essa é a equação normal.
 
 ---
 
-## 38. Por que \(X^T X\) aparece?
+## 38. Por que $X^T X$ aparece?
 
-Porque \(X^T\) está medindo o erro contra cada coluna de \(X\).
+Porque $X^T$ está medindo o erro contra cada coluna de $X$.
 
-\[
+$$
 X^T e = 0
-\]
+$$
 
 é a forma compacta de dizer:
 
@@ -1528,19 +1528,19 @@ X^T e = 0
 
 Quando abrimos:
 
-\[
+$$
 X^T (y - X\hat{w}) = 0
-\]
+$$
 
 surge:
 
-\[
+$$
 X^T X \hat{w} = X^T y
-\]
+$$
 
-Então \(X^T X\) não é uma fórmula mágica.
+Então $X^T X$ não é uma fórmula mágica.
 
-É a matriz que contém os produtos internos entre as colunas de \(X\).
+É a matriz que contém os produtos internos entre as colunas de $X$.
 
 ---
 
@@ -1557,7 +1557,7 @@ flowchart TD
 
 Em palavras:
 
-> Regressão linear escolhe \(\hat{w}\) de modo que \(X\hat{w}\) seja a sombra de \(y\) no espaço das previsões possíveis.
+> Regressão linear escolhe $\hat{w}$ de modo que $X\hat{w}$ seja a sombra de $y$ no espaço das previsões possíveis.
 
 ---
 
@@ -1565,26 +1565,26 @@ Em palavras:
 
 A equação normal é:
 
-\[
+$$
 X^T X \hat{w} = X^T y
-\]
+$$
 
-Se \(X^T X\) é invertível:
+Se $X^T X$ é invertível:
 
-\[
+$$
 \hat{w} = (X^T X)^{-1} X^T y
-\]
+$$
 
-Mas \(X^T X\) só é invertível se as colunas de \(X\) forem linearmente independentes.
+Mas $X^T X$ só é invertível se as colunas de $X$ forem linearmente independentes.
 
-Se houver redundância entre features, \(X^T X\) fica singular ou quase singular.
+Se houver redundância entre features, $X^T X$ fica singular ou quase singular.
 
 ### Conexão com multicolinearidade
 
 Features redundantes significam:
 
 - colunas quase alinhadas;
-- produtos internos altos fora da diagonal de \(X^T X\);
+- produtos internos altos fora da diagonal de $X^T X$;
 - posto deficiente ou quase deficiente;
 - inversa instável;
 - coeficientes que explodem.
@@ -1608,18 +1608,18 @@ Tudo se conecta.
 
 Autovetores são direções especiais de uma transformação.
 
-Uma matriz \(A\) geralmente move um vetor para outra direção.
+Uma matriz $A$ geralmente move um vetor para outra direção.
 
-Mas, para certos vetores \(v\), a matriz só estica, comprime ou inverte a direção:
+Mas, para certos vetores $v$, a matriz só estica, comprime ou inverte a direção:
 
-\[
+$$
 Av = \lambda v
-\]
+$$
 
 Aqui:
 
-- \(v\) é um autovetor;
-- \(\lambda\) é o autovalor.
+- $v$ é um autovetor;
+- $\lambda$ é o autovalor.
 
 ---
 
@@ -1627,21 +1627,21 @@ Aqui:
 
 A equação:
 
-\[
+$$
 Av = \lambda v
-\]
+$$
 
 diz:
 
-> Depois da transformação \(A\), o vetor continua na mesma linha.
+> Depois da transformação $A$, o vetor continua na mesma linha.
 
 Se:
 
-- \(\lambda > 1\): estica;
-- \(0 < \lambda < 1\): comprime;
-- \(\lambda = 1\): mantém;
-- \(\lambda = 0\): colapsa;
-- \(\lambda < 0\): inverte o sentido.
+- $\lambda > 1$: estica;
+- $0 < \lambda < 1$: comprime;
+- $\lambda = 1$: mantém;
+- $\lambda = 0$: colapsa;
+- $\lambda < 0$: inverte o sentido.
 
 ---
 
@@ -1649,17 +1649,17 @@ Se:
 
 Se:
 
-\[
+$$
 A =
 \begin{bmatrix}
 3 & 0 \\
 0 & 2
 \end{bmatrix}
-\]
+$$
 
 então:
 
-\[
+$$
 A
 \begin{bmatrix}
 1 \\
@@ -1676,22 +1676,22 @@ A
 1 \\
 0
 \end{bmatrix}
-\]
+$$
 
 Logo:
 
-\[
+$$
 \begin{bmatrix}
 1 \\
 0
 \end{bmatrix}
-\]
+$$
 
 é autovetor com autovalor 3.
 
 Também:
 
-\[
+$$
 A
 \begin{bmatrix}
 0 \\
@@ -1708,16 +1708,16 @@ A
 0 \\
 1
 \end{bmatrix}
-\]
+$$
 
 Logo:
 
-\[
+$$
 \begin{bmatrix}
 0 \\
 1
 \end{bmatrix}
-\]
+$$
 
 é autovetor com autovalor 2.
 
@@ -1727,33 +1727,33 @@ Logo:
 
 Da equação:
 
-\[
+$$
 Av = \lambda v
-\]
+$$
 
 temos:
 
-\[
+$$
 Av - \lambda v = 0
-\]
+$$
 
-\[
+$$
 (A - \lambda I)v = 0
-\]
+$$
 
-Para existir solução não trivial \(v \neq 0\), a matriz \(A - \lambda I\) precisa colapsar alguma direção.
+Para existir solução não trivial $v \neq 0$, a matriz $A - \lambda I$ precisa colapsar alguma direção.
 
 Então:
 
-\[
+$$
 \det(A - \lambda I) = 0
-\]
+$$
 
 Essa equação encontra os autovalores.
 
 Interpretação:
 
-> Procuramos valores de \(\lambda\) tais que \(A - \lambda I\) perca posto.
+> Procuramos valores de $\lambda$ tais que $A - \lambda I$ perca posto.
 
 Isso conecta autovalores diretamente com:
 
@@ -1771,9 +1771,9 @@ Matrizes simétricas são especialmente importantes.
 
 Se:
 
-\[
+$$
 A = A^T
-\]
+$$
 
 então:
 
@@ -1781,14 +1781,14 @@ então:
 - seus autovetores associados a autovalores distintos são ortogonais;
 - ela pode ser decomposta como:
 
-\[
+$$
 A = Q\Lambda Q^T
-\]
+$$
 
 onde:
 
-- \(Q\) contém autovetores ortonormais;
-- \(\Lambda\) contém autovalores na diagonal.
+- $Q$ contém autovetores ortonormais;
+- $\Lambda$ contém autovalores na diagonal.
 
 Essa decomposição diz:
 
@@ -1808,23 +1808,23 @@ Ou seja:
 
 ## 46. Covariância e PCA
 
-Em PCA, começamos com uma matriz de dados centralizada \(X\).
+Em PCA, começamos com uma matriz de dados centralizada $X$.
 
 A matriz de covariância é proporcional a:
 
-\[
+$$
 X^T X
-\]
+$$
 
 Mais precisamente:
 
-\[
+$$
 \Sigma = \frac{1}{n - 1} X^T X
-\]
+$$
 
 Essa matriz mede como as features variam juntas.
 
-Como \(\Sigma\) é simétrica, podemos estudar seus autovalores e autovetores.
+Como $\Sigma$ é simétrica, podemos estudar seus autovalores e autovetores.
 
 ### Interpretação
 
@@ -1858,8 +1858,8 @@ flowchart TD
 
 PCA conecta quase tudo deste README:
 
-- produto interno: \(X^T X\);
-- transposta: \(X^T\);
+- produto interno: $X^T X$;
+- transposta: $X^T$;
 - ortogonalidade: componentes principais são ortogonais;
 - projeção: dados são projetados nas componentes;
 - autovalores/autovetores: direções principais;
@@ -1873,19 +1873,19 @@ PCA conecta quase tudo deste README:
 
 Considere:
 
-\[
+$$
 A =
 \begin{bmatrix}
 2 & 1 \\
 1 & 2
 \end{bmatrix}
-\]
+$$
 
 ## 48. Matriz como transformação
 
 As colunas são:
 
-\[
+$$
 a_1 =
 \begin{bmatrix}
 2 \\
@@ -1897,12 +1897,12 @@ a_2 =
 1 \\
 2
 \end{bmatrix}
-\]
+$$
 
 Logo:
 
-- \(\hat{i}\) vai para \((2,1)\);
-- \(\hat{j}\) vai para \((1,2)\).
+- $\hat{i}$ vai para $(2,1)$;
+- $\hat{j}$ vai para $(1,2)$.
 
 A matriz transforma a grade do plano levando os vetores-base para essas colunas.
 
@@ -1910,34 +1910,34 @@ A matriz transforma a grade do plano levando os vetores-base para essas colunas.
 
 ## 49. Determinante
 
-\[
+$$
 \det(A) = 2 \cdot 2 - 1 \cdot 1 = 3
-\]
+$$
 
 Logo:
 
 - áreas são multiplicadas por 3;
 - a orientação é preservada;
 - a transformação não colapsa;
-- \(A\) é invertível.
+- $A$ é invertível.
 
 ---
 
 ## 50. Posto e espaço-coluna
 
-Como \(\det(A) \neq 0\), as colunas são independentes.
+Como $\det(A) \neq 0$, as colunas são independentes.
 
 Logo:
 
-\[
+$$
 \text{rank}(A) = 2
-\]
+$$
 
 e:
 
-\[
+$$
 \text{col}(A) = \mathbb{R}^2
-\]
+$$
 
 O espaço-coluna é o plano todo.
 
@@ -1945,9 +1945,9 @@ O espaço-coluna é o plano todo.
 
 ## 51. Inversa
 
-Como \(\det(A) = 3\), existe inversa.
+Como $\det(A) = 3$, existe inversa.
 
-\[
+$$
 A^{-1}
 =
 \frac{1}{3}
@@ -1955,19 +1955,19 @@ A^{-1}
 2 & -1 \\
 -1 & 2
 \end{bmatrix}
-\]
+$$
 
 Se:
 
-\[
+$$
 v = A x
-\]
+$$
 
 então:
 
-\[
+$$
 x = A^{-1} v
-\]
+$$
 
 A transformação pode ser desfeita.
 
@@ -1975,16 +1975,16 @@ A transformação pode ser desfeita.
 
 ## 52. Transposta e simetria
 
-\[
+$$
 A^T =
 \begin{bmatrix}
 2 & 1 \\
 1 & 2
 \end{bmatrix}
 = A
-\]
+$$
 
-Logo, \(A\) é simétrica.
+Logo, $A$ é simétrica.
 
 Isso sugere que ela terá autovetores ortogonais e autovalores reais.
 
@@ -1994,15 +1994,15 @@ Isso sugere que ela terá autovetores ortogonais e autovalores reais.
 
 Teste:
 
-\[
+$$
 v_1 =
 \begin{bmatrix}
 1 \\
 1
 \end{bmatrix}
-\]
+$$
 
-\[
+$$
 Av_1 =
 \begin{bmatrix}
 3 \\
@@ -2014,21 +2014,21 @@ Av_1 =
 1 \\
 1
 \end{bmatrix}
-\]
+$$
 
-Logo, \(v_1\) é autovetor com autovalor 3.
+Logo, $v_1$ é autovetor com autovalor 3.
 
 Agora:
 
-\[
+$$
 v_2 =
 \begin{bmatrix}
 1 \\
 -1
 \end{bmatrix}
-\]
+$$
 
-\[
+$$
 Av_2 =
 \begin{bmatrix}
 1 \\
@@ -2040,13 +2040,13 @@ Av_2 =
 1 \\
 -1
 \end{bmatrix}
-\]
+$$
 
-Logo, \(v_2\) é autovetor com autovalor 1.
+Logo, $v_2$ é autovetor com autovalor 1.
 
 Observe:
 
-\[
+$$
 v_1^T v_2 =
 \begin{bmatrix}
 1 & 1
@@ -2056,7 +2056,7 @@ v_1^T v_2 =
 -1
 \end{bmatrix}
 = 0
-\]
+$$
 
 Os autovetores são ortogonais.
 
@@ -2066,23 +2066,23 @@ Os autovetores são ortogonais.
 
 Os autovalores são:
 
-\[
+$$
 \lambda_1 = 3,
 \quad
 \lambda_2 = 1
-\]
+$$
 
 O determinante é o produto dos autovalores:
 
-\[
+$$
 \det(A) = 3 \cdot 1 = 3
-\]
+$$
 
 Isso bate com o cálculo anterior.
 
 Interpretação:
 
-> A matriz estica uma direção por 3 e outra por 1. A área total escala por \(3 \cdot 1 = 3\).
+> A matriz estica uma direção por 3 e outra por 1. A área total escala por $3 \cdot 1 = 3$.
 
 ---
 
@@ -2090,15 +2090,15 @@ Interpretação:
 
 O traço é a soma da diagonal:
 
-\[
+$$
 \text{tr}(A) = 2 + 2 = 4
-\]
+$$
 
 Também é a soma dos autovalores:
 
-\[
+$$
 3 + 1 = 4
-\]
+$$
 
 O traço mede a soma dos esticamentos principais.
 
@@ -2108,13 +2108,13 @@ O traço mede a soma dos esticamentos principais.
 
 A matriz:
 
-\[
+$$
 A =
 \begin{bmatrix}
 2 & 1 \\
 1 & 2
 \end{bmatrix}
-\]
+$$
 
 faz isto:
 
@@ -2125,8 +2125,8 @@ faz isto:
 5. é invertível;
 6. é simétrica;
 7. possui direções ortogonais especiais;
-8. estica \((1,1)\) por 3;
-9. mantém \((1,-1)\) com fator 1;
+8. estica $(1,1)$ por 3;
+9. mantém $(1,-1)$ com fator 1;
 10. pode ser decomposta em uma base de autovetores.
 
 Tudo é a mesma história vista por ângulos diferentes.
@@ -2144,11 +2144,11 @@ Tudo é a mesma história vista por ângulos diferentes.
 | Posto | Quantas dimensões sobrevivem? | Dimensão do espaço-coluna | Redundância, rank-deficiency |
 | Espaço-coluna | Quais saídas são possíveis? | Span das colunas | Regressão, projeção |
 | Inversa | Dá para desfazer? | Existe se não colapsa | Resolver sistemas, normal equation |
-| Transposta | Como trocar linhas/colunas e medir? | Dualidade | Gradientes, \(X^T X\), backprop |
+| Transposta | Como trocar linhas/colunas e medir? | Dualidade | Gradientes, $X^T X$, backprop |
 | Produto interno | Quanto alinhamento existe? | Sobreposição | Similaridade, kernels, projeção |
 | Ortogonalidade | Há sobreposição? | Produto interno zero | PCA, bases ortonormais |
 | Projeção | Qual a melhor sombra? | Erro ortogonal | Mínimos quadrados |
-| \(X^T X\) | Como features se sobrepõem? | Gram matrix | Regressão, covariância |
+| $X^T X$ | Como features se sobrepõem? | Gram matrix | Regressão, covariância |
 | Autovetores | Quais direções só esticam? | Direções invariantes | PCA, métodos espectrais |
 | Autovalores | Quanto cada direção estica? | Variância/escala | PCA, estabilidade, curvatura |
 
@@ -2158,9 +2158,9 @@ Tudo é a mesma história vista por ângulos diferentes.
 
 ## 57. Transformação linear
 
-\[
+$$
 T(\alpha x + \beta y) = \alpha T(x) + \beta T(y)
-\]
+$$
 
 Interpretação: preserva combinações lineares.
 
@@ -2168,9 +2168,9 @@ Interpretação: preserva combinações lineares.
 
 ## 58. Multiplicação matricial
 
-\[
+$$
 (AB)x = A(Bx)
-\]
+$$
 
 Interpretação: composição de transformações.
 
@@ -2178,9 +2178,9 @@ Interpretação: composição de transformações.
 
 ## 59. Determinante
 
-\[
+$$
 |\det(A)|
-\]
+$$
 
 Interpretação: fator de escala de área/volume.
 
@@ -2188,9 +2188,9 @@ Interpretação: fator de escala de área/volume.
 
 ## 60. Inversa
 
-\[
+$$
 A^{-1} A = I
-\]
+$$
 
 Interpretação: desfaz a transformação.
 
@@ -2198,9 +2198,9 @@ Interpretação: desfaz a transformação.
 
 ## 61. Produto interno
 
-\[
+$$
 x^T y = \|x\| \|y\|\cos(\theta)
-\]
+$$
 
 Interpretação: mede alinhamento/sobreposição.
 
@@ -2208,9 +2208,9 @@ Interpretação: mede alinhamento/sobreposição.
 
 ## 62. Ortogonalidade
 
-\[
+$$
 x^T y = 0
-\]
+$$
 
 Interpretação: sem sobreposição linear.
 
@@ -2218,31 +2218,31 @@ Interpretação: sem sobreposição linear.
 
 ## 63. Projeção
 
-\[
+$$
 \text{proj}_a(b)
 =
 \frac{a^T b}{a^T a} a
-\]
+$$
 
-Interpretação: sombra de \(b\) na direção de \(a\).
+Interpretação: sombra de $b$ na direção de $a$.
 
 ---
 
 ## 64. Equação normal
 
-\[
+$$
 X^T X \hat{w} = X^T y
-\]
+$$
 
-Interpretação: erro ortogonal ao espaço-coluna de \(X\).
+Interpretação: erro ortogonal ao espaço-coluna de $X$.
 
 ---
 
 ## 65. Autovalores
 
-\[
+$$
 Av = \lambda v
-\]
+$$
 
 Interpretação: direção que a matriz só estica/comprime.
 
@@ -2256,11 +2256,11 @@ Use estes checks para estudar no estilo Feynman.
 
 Explique por que:
 
-\[
+$$
 f(x) = Wx + b
-\]
+$$
 
-não é linear quando \(b \neq 0\).
+não é linear quando $b \neq 0$.
 
 Resposta esperada: porque não preserva a origem; é transformação afim.
 
@@ -2270,39 +2270,39 @@ Resposta esperada: porque não preserva a origem; é transformação afim.
 
 Se:
 
-\[
+$$
 A =
 \begin{bmatrix}
 4 & -1 \\
 2 & 3
 \end{bmatrix}
-\]
+$$
 
-para onde vão \(\hat{i}\) e \(\hat{j}\)?
+para onde vão $\hat{i}$ e $\hat{j}$?
 
 Resposta:
 
-\[
+$$
 A\hat{i} =
 \begin{bmatrix}
 4 \\
 2
 \end{bmatrix}
-\]
+$$
 
-\[
+$$
 A\hat{j} =
 \begin{bmatrix}
 -1 \\
 3
 \end{bmatrix}
-\]
+$$
 
 ---
 
 ## 68. Determinante e inversa
 
-Se \(\det(A)=0\), por que \(A^{-1}\) não existe?
+Se $\det(A)=0$, por que $A^{-1}$ não existe?
 
 Resposta esperada: porque a transformação colapsa o espaço e perde informação; não existe desfazer único.
 
@@ -2310,7 +2310,7 @@ Resposta esperada: porque a transformação colapsa o espaço e perde informaç�
 
 ## 69. Produto interno
 
-Se \(x^T y = 0\), o que isso significa geometricamente?
+Se $x^T y = 0$, o que isso significa geometricamente?
 
 Resposta esperada: os vetores são ortogonais; não há componente de um na direção do outro.
 
@@ -2328,11 +2328,11 @@ Resposta esperada: porque se ainda houvesse componente do erro dentro do subespa
 
 Por que a equação normal é:
 
-\[
+$$
 X^T X \hat{w} = X^T y
-\]
+$$
 
-Resposta esperada: porque o erro \(e = y - X\hat{w}\) precisa ser ortogonal a todas as colunas de \(X\), então \(X^T e = 0\).
+Resposta esperada: porque o erro $e = y - X\hat{w}$ precisa ser ortogonal a todas as colunas de $X$, então $X^T e = 0$.
 
 ---
 
@@ -2534,7 +2534,7 @@ mindmap
 Depois deste README, a sequência ideal é:
 
 1. **Matrizes simétricas e positivas semidefinidas**
-   - Por que \(X^T X\), covariância, Hessiana e kernels são PSD.
+   - Por que $X^T X$, covariância, Hessiana e kernels são PSD.
    - Ligação com mínimos, curvatura e estabilidade.
 
 2. **SVD**
@@ -2567,7 +2567,7 @@ Você começou a enxergar o “sistema operacional” matemático por trás de M
 
 A ordem lógica é:
 
-\[
+$$
 \text{transformar}
 \rightarrow
 \text{medir}
@@ -2579,6 +2579,6 @@ A ordem lógica é:
 \text{otimizar}
 \rightarrow
 \text{decompor}
-\]
+$$
 
 E essa é exatamente a ponte entre Álgebra Linear, Machine Learning e Scientific ML.
