@@ -12,8 +12,8 @@
 
 Em Machine Learning, quase tudo passa por isso:
 
-- uma camada linear de rede neural é uma transformação `Wx`;
-- regressão linear é uma projeção no espaço-coluna de `X`;
+- uma camada linear de rede neural é uma transformação \(Wx\);
+- regressão linear é uma projeção no espaço-coluna de \(X\);
 - PCA encontra direções principais via autovalores/autovetores;
 - covariância é uma matriz simétrica que mede como variáveis variam juntas;
 - regularização controla problemas de posto, redundância e instabilidade;
@@ -31,13 +31,13 @@ flowchart TD
     C --> G[Posto = dimensão da imagem/espaço-coluna]
     F --> H[Invertibilidade]
     G --> H
-    H --> I[Resolver Ax = b]
+    H --> I["Resolver A x = b"]
     C --> J[Transposta]
-    J --> K[Produto interno x^T y]
+    J --> K["Produto interno x^T y"]
     K --> L[Ortogonalidade]
     L --> M[Projeção]
     M --> N[Regressão linear / mínimos quadrados]
-    J --> O[X^T X]
+    J --> O["X^T X"]
     K --> O
     L --> O
     O --> N
@@ -366,7 +366,7 @@ A interpretação geométrica é a mais importante.
 Se \(A\) e \(B\) são matrizes, então:
 
 \[
-ABx = A(Bx)
+(AB)x = A(Bx)
 \]
 
 Isso significa:
@@ -661,9 +661,9 @@ Para matrizes quadradas \(n \times n\), estas ideias se conectam:
 
 ```mermaid
 flowchart TD
-    A[Posto cheio: rank(A)=n] <--> B[det(A) diferente de 0]
+    A[Posto cheio: rank(A) = n] <--> B[det(A) diferente de 0]
     B <--> C[A é invertível]
-    C <--> D[Ax=b tem solução única para todo b]
+    C <--> D["A x = b tem solução única para todo b"]
     D <--> A
 ```
 
@@ -693,23 +693,23 @@ Logo, existe inversa.
 A inversa de \(A\), escrita \(A^{-1}\), é a transformação que desfaz \(A\).
 
 \[
-A^{-1}A = I
+A^{-1} A = I
 \]
 
 \[
-AA^{-1} = I
+A A^{-1} = I
 \]
 
 Se:
 
 \[
-v = Ax
+v = A x
 \]
 
 então:
 
 \[
-x = A^{-1}v
+x = A^{-1} v
 \]
 
 ### Interpretação
@@ -720,8 +720,8 @@ x = A^{-1}v
 ```mermaid
 flowchart LR
     X[x] --> A[A]
-    A --> V[v = Ax]
-    V --> Inv[A^-1]
+    A --> V[v = A x]
+    V --> Inv["A^{-1}"]
     Inv --> X2[x]
 ```
 
@@ -808,15 +808,15 @@ Matrizes simétricas aparecem muito em ML:
 - matriz de covariância;
 - kernel matrix;
 - Hessiana;
-- \(X^TX\).
+- \(X^T X\).
 
-### Por que \(X^TX\) é simétrica?
+### Por que \(X^T X\) é simétrica?
 
 \[
-(X^TX)^T = X^T(X^T)^T = X^TX
+(X^T X)^T = X^T (X^T)^T = X^T X
 \]
 
-Logo, \(X^TX\) é sempre simétrica.
+Logo, \(X^T X\) é sempre simétrica.
 
 Isso importa porque matrizes simétricas têm propriedades espectrais muito boas:
 
@@ -832,7 +832,7 @@ Isso importa porque matrizes simétricas têm propriedades espectrais muito boas
 A transposta de um produto inverte a ordem:
 
 \[
-(AB)^T = B^TA^T
+(AB)^T = B^T A^T
 \]
 
 Por quê?
@@ -877,7 +877,7 @@ x_1 & x_2
 pode ser vista como uma transformação que recebe outro vetor e devolve um número:
 
 \[
-x^Ty
+x^T y
 \]
 
 Ou seja:
@@ -897,7 +897,7 @@ Essa é a ponte para produto interno.
 O produto interno padrão entre \(x\) e \(y\) é:
 
 \[
-x^Ty
+x^T y
 \]
 
 Se:
@@ -919,13 +919,13 @@ y_2
 então:
 
 \[
-x^Ty = x_1y_1 + x_2y_2
+x^T y = x_1 y_1 + x_2 y_2
 \]
 
 Geometricamente:
 
 \[
-x^Ty = \|x\| \|y\| \cos(\theta)
+x^T y = \|x\| \|y\| \cos(\theta)
 \]
 
 Portanto, o produto interno mede:
@@ -939,7 +939,7 @@ Portanto, o produto interno mede:
 ## 23. Interpretação do produto interno
 
 \[
-x^Ty
+x^T y
 \]
 
 pode ser lido como:
@@ -957,7 +957,7 @@ Se \(\theta = 0^\circ\):
 \]
 
 \[
-x^Ty = \|x\|\|y\|
+x^T y = \|x\| \|y\|
 \]
 
 Máxima sobreposição positiva.
@@ -971,7 +971,7 @@ Se \(\theta = 90^\circ\):
 \]
 
 \[
-x^Ty = 0
+x^T y = 0
 \]
 
 Sem sobreposição.
@@ -985,7 +985,7 @@ Se \(\theta = 180^\circ\):
 \]
 
 \[
-x^Ty = -\|x\|\|y\|
+x^T y = -\|x\| \|y\|
 \]
 
 Sobreposição negativa.
@@ -999,7 +999,7 @@ Sobreposição negativa.
 Dois vetores são ortogonais quando seu produto interno é zero:
 
 \[
-x^Ty = 0
+x^T y = 0
 \]
 
 Geometricamente, isso significa que eles são perpendiculares.
@@ -1021,7 +1021,7 @@ Se dois vetores estão muito alinhados, eles carregam informação parecida.
 Se:
 
 \[
-x^Ty
+x^T y
 \]
 
 é grande, existe muita sobreposição.
@@ -1029,7 +1029,7 @@ x^Ty
 Se:
 
 \[
-x^Ty = 0
+x^T y = 0
 \]
 
 não existe sobreposição linear.
@@ -1061,7 +1061,7 @@ Uma base ortonormal é um conjunto de vetores que são:
 Formalmente:
 
 \[
-q_i^Tq_j =
+q_i^T q_j =
 \begin{cases}
 1, & i=j \\
 0, & i\neq j
@@ -1071,7 +1071,7 @@ q_i^Tq_j =
 Em matriz:
 
 \[
-Q^TQ = I
+Q^T Q = I
 \]
 
 Isso significa que as colunas de \(Q\) formam uma base ortonormal.
@@ -1093,7 +1093,7 @@ Porque em uma base ortonormal:
 Uma matriz \(Q\) é ortogonal se:
 
 \[
-Q^TQ = I
+Q^T Q = I
 \]
 
 Isso implica:
@@ -1112,48 +1112,48 @@ Elas não esticam nem comprimem o espaço. Apenas mudam a orientação.
 
 ---
 
-## 28. Ortogonalidade e \(X^TX\)
+## 28. Ortogonalidade e \(X^T X\)
 
 Se \(X\) tem colunas \(x_1, x_2, \dots, x_p\), então:
 
 \[
-X^TX =
+X^T X =
 \begin{bmatrix}
-x_1^Tx_1 & x_1^Tx_2 & \cdots & x_1^Tx_p \\
-x_2^Tx_1 & x_2^Tx_2 & \cdots & x_2^Tx_p \\
+x_1^T x_1 & x_1^T x_2 & \cdots & x_1^T x_p \\
+x_2^T x_1 & x_2^T x_2 & \cdots & x_2^T x_p \\
 \vdots & \vdots & \ddots & \vdots \\
-x_p^Tx_1 & x_p^Tx_2 & \cdots & x_p^Tx_p
+x_p^T x_1 & x_p^T x_2 & \cdots & x_p^T x_p
 \end{bmatrix}
 \]
 
-Ou seja, \(X^TX\) é uma matriz de produtos internos entre features.
+Ou seja, \(X^T X\) é uma matriz de produtos internos entre features.
 
 Na diagonal:
 
 \[
-x_i^Tx_i = \|x_i\|^2
+x_i^T x_i = \|x_i\|^2
 \]
 
 Fora da diagonal:
 
 \[
-x_i^Tx_j
+x_i^T x_j
 \]
 
 mede a sobreposição entre features.
 
 ### Interpretação
 
-- Se as colunas são ortogonais, \(X^TX\) é diagonal.
-- Se as colunas são ortonormais, \(X^TX = I\).
-- Se as colunas são redundantes, \(X^TX\) fica mal condicionado ou singular.
+- Se as colunas são ortogonais, \(X^T X\) é diagonal.
+- Se as colunas são ortonormais, \(X^T X = I\).
+- Se as colunas são redundantes, \(X^T X\) fica mal condicionado ou singular.
 
 Isso conecta:
 
 ```mermaid
 flowchart LR
     A[Produto interno] --> B[X^T X]
-    B --> C[Sobreposição entre features]
+    B --> C["Sobreposição entre features"]
     C --> D[Ortogonalidade]
     D --> E[Menos redundância]
     E --> F[Regressão mais estável]
@@ -1217,7 +1217,7 @@ Se temos um vetor \(b\) e queremos projetá-lo na direção de \(a\), buscamos a
 A projeção precisa estar nessa linha, então ela é um múltiplo de \(a\):
 
 \[
-\text{proj}_a(b) = \hat{x}a
+\text{proj}_a(b) = \hat{x} a
 \]
 
 A pergunta vira:
@@ -1231,7 +1231,7 @@ A pergunta vira:
 O erro entre \(b\) e sua projeção é:
 
 \[
-e = b - \hat{x}a
+e = b - \hat{x} a
 \]
 
 A projeção correta é aquela em que o erro é perpendicular à linha.
@@ -1239,25 +1239,25 @@ A projeção correta é aquela em que o erro é perpendicular à linha.
 Ou seja:
 
 \[
-a^Te = 0
+a^T e = 0
 \]
 
 Substituindo \(e\):
 
 \[
-a^T(b - \hat{x}a) = 0
+a^T(b - \hat{x} a) = 0
 \]
 
 Abrindo:
 
 \[
-a^Tb - \hat{x}a^Ta = 0
+a^T b - \hat{x} a^T a = 0
 \]
 
 Logo:
 
 \[
-\hat{x} = \frac{a^Tb}{a^Ta}
+\hat{x} = \frac{a^T b}{a^T a}
 \]
 
 E portanto:
@@ -1265,7 +1265,7 @@ E portanto:
 \[
 \boxed{
 \text{proj}_a(b) =
-\frac{a^Tb}{a^Ta}a
+\frac{a^T b}{a^T a} a
 }
 \]
 
@@ -1275,7 +1275,7 @@ E portanto:
 
 \[
 \text{proj}_a(b) =
-\frac{a^Tb}{a^Ta}a
+\frac{a^T b}{a^T a} a
 \]
 
 Peça por peça:
@@ -1283,7 +1283,7 @@ Peça por peça:
 ### Numerador
 
 \[
-a^Tb
+a^T b
 \]
 
 mede a sobreposição de \(b\) na direção de \(a\).
@@ -1291,7 +1291,7 @@ mede a sobreposição de \(b\) na direção de \(a\).
 ### Denominador
 
 \[
-a^Ta = \|a\|^2
+a^T a = \|a\|^2
 \]
 
 normaliza pelo tamanho de \(a\).
@@ -1313,13 +1313,13 @@ Se \(a\) é unitário:
 então:
 
 \[
-a^Ta = 1
+a^T a = 1
 \]
 
 e a projeção vira:
 
 \[
-\text{proj}_a(b) = (a^Tb)a
+\text{proj}_a(b) = (a^T b)a
 \]
 
 Muito mais simples.
@@ -1349,11 +1349,11 @@ b =
 então:
 
 \[
-a^Tb = 2 \cdot 3 + 1 \cdot 4 = 10
+a^T b = 2 \cdot 3 + 1 \cdot 4 = 10
 \]
 
 \[
-a^Ta = 2^2 + 1^2 = 5
+a^T a = 2^2 + 1^2 = 5
 \]
 
 \[
@@ -1394,7 +1394,7 @@ e = b - \text{proj}_a(b)
 Verificando ortogonalidade:
 
 \[
-a^Te =
+a^T e =
 \begin{bmatrix}
 2 & 1
 \end{bmatrix}
@@ -1417,7 +1417,7 @@ O erro é perpendicular à direção de \(a\).
 Na projeção sobre uma única direção:
 
 \[
-\text{proj}_a(b) = \hat{x}a
+\text{proj}_a(b) = \hat{x} a
 \]
 
 Na regressão linear, projetamos sobre o espaço-coluna de uma matriz \(X\).
@@ -1469,11 +1469,11 @@ O erro deve ser ortogonal a todas as colunas de \(X\).
 Se \(X\) tem colunas \(x_1, x_2, \dots, x_p\), queremos:
 
 \[
-x_1^Te = 0
+x_1^T e = 0
 \]
 
 \[
-x_2^Te = 0
+x_2^T e = 0
 \]
 
 \[
@@ -1481,32 +1481,32 @@ x_2^Te = 0
 \]
 
 \[
-x_p^Te = 0
+x_p^T e = 0
 \]
 
 Escrevendo tudo de uma vez:
 
 \[
-X^Te = 0
+X^T e = 0
 \]
 
 Substituindo \(e = y - X\hat{w}\):
 
 \[
-X^T(y - X\hat{w}) = 0
+X^T (y - X\hat{w}) = 0
 \]
 
 Abrindo:
 
 \[
-X^Ty - X^TX\hat{w} = 0
+X^T y - X^T X \hat{w} = 0
 \]
 
 Logo:
 
 \[
 \boxed{
-X^TX\hat{w} = X^Ty
+X^T X \hat{w} = X^T y
 }
 \]
 
@@ -1514,12 +1514,12 @@ Essa é a equação normal.
 
 ---
 
-## 38. Por que \(X^TX\) aparece?
+## 38. Por que \(X^T X\) aparece?
 
 Porque \(X^T\) está medindo o erro contra cada coluna de \(X\).
 
 \[
-X^Te = 0
+X^T e = 0
 \]
 
 é a forma compacta de dizer:
@@ -1529,16 +1529,16 @@ X^Te = 0
 Quando abrimos:
 
 \[
-X^T(y - X\hat{w}) = 0
+X^T (y - X\hat{w}) = 0
 \]
 
 surge:
 
 \[
-X^TX\hat{w} = X^Ty
+X^T X \hat{w} = X^T y
 \]
 
-Então \(X^TX\) não é uma fórmula mágica.
+Então \(X^T X\) não é uma fórmula mágica.
 
 É a matriz que contém os produtos internos entre as colunas de \(X\).
 
@@ -1551,8 +1551,8 @@ flowchart TD
     A[Produto interno mede sobreposição] --> B[Ortogonalidade = sobreposição zero]
     B --> C[Projeção = erro ortogonal ao subespaço]
     C --> D[Regressão linear = projeção de y em col(X)]
-    D --> E[X^T e = 0]
-    E --> F[X^T X w = X^T y]
+    D --> E["X^T e = 0"]
+    E --> F["X^T X w = X^T y"]
 ```
 
 Em palavras:
@@ -1566,25 +1566,25 @@ Em palavras:
 A equação normal é:
 
 \[
-X^TX\hat{w} = X^Ty
+X^T X \hat{w} = X^T y
 \]
 
-Se \(X^TX\) é invertível:
+Se \(X^T X\) é invertível:
 
 \[
-\hat{w} = (X^TX)^{-1}X^Ty
+\hat{w} = (X^T X)^{-1} X^T y
 \]
 
-Mas \(X^TX\) só é invertível se as colunas de \(X\) forem linearmente independentes.
+Mas \(X^T X\) só é invertível se as colunas de \(X\) forem linearmente independentes.
 
-Se houver redundância entre features, \(X^TX\) fica singular ou quase singular.
+Se houver redundância entre features, \(X^T X\) fica singular ou quase singular.
 
 ### Conexão com multicolinearidade
 
 Features redundantes significam:
 
 - colunas quase alinhadas;
-- produtos internos altos fora da diagonal de \(X^TX\);
+- produtos internos altos fora da diagonal de \(X^T X\);
 - posto deficiente ou quase deficiente;
 - inversa instável;
 - coeficientes que explodem.
@@ -1795,7 +1795,7 @@ Essa decomposição diz:
 ```mermaid
 flowchart LR
     X[x] --> QT[Q^T: muda para base dos autovetores]
-    QT --> L[Lambda: estica cada direção]
+    QT --> L["Λ: estica cada direção"]
     L --> Q[Q: volta para a base original]
     Q --> AX[Ax]
 ```
@@ -1813,13 +1813,13 @@ Em PCA, começamos com uma matriz de dados centralizada \(X\).
 A matriz de covariância é proporcional a:
 
 \[
-X^TX
+X^T X
 \]
 
 Mais precisamente:
 
 \[
-\Sigma = \frac{1}{n-1}X^TX
+\Sigma = \frac{1}{n - 1} X^T X
 \]
 
 Essa matriz mede como as features variam juntas.
@@ -1846,7 +1846,7 @@ A ideia de PCA:
 
 ```mermaid
 flowchart TD
-    A[Dados X centralizados] --> B[Covariância Sigma = X^T X / n-1]
+    A[Dados X centralizados] --> B["Covariância Σ = X^T X / (n-1)"]
     B --> C[Autovetores]
     B --> D[Autovalores]
     C --> E[Direções principais]
@@ -1858,7 +1858,7 @@ flowchart TD
 
 PCA conecta quase tudo deste README:
 
-- produto interno: \(X^TX\);
+- produto interno: \(X^T X\);
 - transposta: \(X^T\);
 - ortogonalidade: componentes principais são ortogonais;
 - projeção: dados são projetados nas componentes;
@@ -1960,13 +1960,13 @@ A^{-1}
 Se:
 
 \[
-v = Ax
+v = A x
 \]
 
 então:
 
 \[
-x = A^{-1}v
+x = A^{-1} v
 \]
 
 A transformação pode ser desfeita.
@@ -2047,7 +2047,7 @@ Logo, \(v_2\) é autovetor com autovalor 1.
 Observe:
 
 \[
-v_1^Tv_2 =
+v_1^T v_2 =
 \begin{bmatrix}
 1 & 1
 \end{bmatrix}
@@ -2169,7 +2169,7 @@ Interpretação: preserva combinações lineares.
 ## 58. Multiplicação matricial
 
 \[
-ABx = A(Bx)
+(AB)x = A(Bx)
 \]
 
 Interpretação: composição de transformações.
@@ -2189,7 +2189,7 @@ Interpretação: fator de escala de área/volume.
 ## 60. Inversa
 
 \[
-A^{-1}A = I
+A^{-1} A = I
 \]
 
 Interpretação: desfaz a transformação.
@@ -2199,7 +2199,7 @@ Interpretação: desfaz a transformação.
 ## 61. Produto interno
 
 \[
-x^Ty = \|x\|\|y\|\cos(\theta)
+x^T y = \|x\| \|y\|\cos(\theta)
 \]
 
 Interpretação: mede alinhamento/sobreposição.
@@ -2209,7 +2209,7 @@ Interpretação: mede alinhamento/sobreposição.
 ## 62. Ortogonalidade
 
 \[
-x^Ty = 0
+x^T y = 0
 \]
 
 Interpretação: sem sobreposição linear.
@@ -2221,7 +2221,7 @@ Interpretação: sem sobreposição linear.
 \[
 \text{proj}_a(b)
 =
-\frac{a^Tb}{a^Ta}a
+\frac{a^T b}{a^T a} a
 \]
 
 Interpretação: sombra de \(b\) na direção de \(a\).
@@ -2231,7 +2231,7 @@ Interpretação: sombra de \(b\) na direção de \(a\).
 ## 64. Equação normal
 
 \[
-X^TX\hat{w} = X^Ty
+X^T X \hat{w} = X^T y
 \]
 
 Interpretação: erro ortogonal ao espaço-coluna de \(X\).
@@ -2310,7 +2310,7 @@ Resposta esperada: porque a transformação colapsa o espaço e perde informaç�
 
 ## 69. Produto interno
 
-Se \(x^Ty = 0\), o que isso significa geometricamente?
+Se \(x^T y = 0\), o que isso significa geometricamente?
 
 Resposta esperada: os vetores são ortogonais; não há componente de um na direção do outro.
 
@@ -2329,10 +2329,10 @@ Resposta esperada: porque se ainda houvesse componente do erro dentro do subespa
 Por que a equação normal é:
 
 \[
-X^TX\hat{w} = X^Ty
+X^T X \hat{w} = X^T y
 \]
 
-Resposta esperada: porque o erro \(e = y - X\hat{w}\) precisa ser ortogonal a todas as colunas de \(X\), então \(X^Te=0\).
+Resposta esperada: porque o erro \(e = y - X\hat{w}\) precisa ser ortogonal a todas as colunas de \(X\), então \(X^T e = 0\).
 
 ---
 
@@ -2509,8 +2509,8 @@ mindmap
       Sombra
       Erro ortogonal
       Mínimos quadrados
-        XTe igual zero
-        XTXw igual XTy
+        X^T e = 0
+        X^T X w = X^T y
     Espectral
       Autovetores
         Direções que só esticam
@@ -2534,7 +2534,7 @@ mindmap
 Depois deste README, a sequência ideal é:
 
 1. **Matrizes simétricas e positivas semidefinidas**
-   - Por que \(X^TX\), covariância, Hessiana e kernels são PSD.
+   - Por que \(X^T X\), covariância, Hessiana e kernels são PSD.
    - Ligação com mínimos, curvatura e estabilidade.
 
 2. **SVD**
