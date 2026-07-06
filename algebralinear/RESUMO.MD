@@ -136,13 +136,11 @@ $$
 x \\
 y
 \end{bmatrix}
-=
-x
+= x
 \begin{bmatrix}
 1 \\
 0
-\end{bmatrix}
-+
+\end{bmatrix} +
 y
 \begin{bmatrix}
 0 \\
@@ -214,8 +212,7 @@ Ax =
 x_1 \\
 x_2
 \end{bmatrix}
-=
-\begin{bmatrix}
+= \begin{bmatrix}
 2x_1 + x_2 \\
 x_1 + 2x_2
 \end{bmatrix}
@@ -243,8 +240,7 @@ Aplicando $A$:
 
 $$
 A\hat{i}
-=
-\begin{bmatrix}
+= \begin{bmatrix}
 2 \\
 1
 \end{bmatrix}
@@ -252,8 +248,7 @@ $$
 
 $$
 A\hat{j}
-=
-\begin{bmatrix}
+= \begin{bmatrix}
 1 \\
 2
 \end{bmatrix}
@@ -489,8 +484,7 @@ $$
 2 \\
 4
 \end{bmatrix}
-=
-2
+= 2
 \begin{bmatrix}
 1 \\
 2
@@ -1140,18 +1134,15 @@ O erro é:
 
 $$
 e = b - \text{proj}_a(b)
-=
-\begin{bmatrix}
+= \begin{bmatrix}
 3 \\
 4
-\end{bmatrix}
--
+\end{bmatrix} -
 \begin{bmatrix}
 4 \\
 2
 \end{bmatrix}
-=
-\begin{bmatrix}
+= \begin{bmatrix}
 -1 \\
 2
 \end{bmatrix}
@@ -1168,8 +1159,7 @@ a^T e =
 -1 \\
 2
 \end{bmatrix}
-=
--2 + 2 = 0
+= -2 + 2 = 0
 $$
 
 O erro é perpendicular à direção de $a$.
@@ -1371,13 +1361,11 @@ A
 1 \\
 0
 \end{bmatrix}
-=
-\begin{bmatrix}
+= \begin{bmatrix}
 3 \\
 0
 \end{bmatrix}
-=
-3
+= 3
 \begin{bmatrix}
 1 \\
 0
@@ -1403,13 +1391,11 @@ A
 0 \\
 1
 \end{bmatrix}
-=
-\begin{bmatrix}
+= \begin{bmatrix}
 0 \\
 2
 \end{bmatrix}
-=
-2
+= 2
 \begin{bmatrix}
 0 \\
 1
@@ -1617,8 +1603,7 @@ Como $\det(A) = 3$, existe inversa.
 
 $$
 A^{-1}
-=
-\frac{1}{3}
+= \frac{1}{3}
 \begin{bmatrix}
 2 & -1 \\
 -1 & 2
@@ -1664,8 +1649,7 @@ Av_1 =
 3 \\
 3
 \end{bmatrix}
-=
-3
+= 3
 \begin{bmatrix}
 1 \\
 1
@@ -1690,8 +1674,7 @@ Av_2 =
 1 \\
 -1
 \end{bmatrix}
-=
-1
+= 1
 \begin{bmatrix}
 1 \\
 -1
@@ -1864,8 +1847,7 @@ Interpretação: sem sobreposição linear.
 
 $$
 \text{proj}_a(b)
-=
-\frac{a^T b}{a^T a} a
+= \frac{a^T b}{a^T a} a
 $$
 
 Interpretação: sombra de $b$ na direção de $a$.
