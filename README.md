@@ -70,7 +70,7 @@ jupyter notebook algebra_linear.ipynb
 
 Também é possível abrir o notebook diretamente pelo VS Code com a extensão de Jupyter instalada.
 
-## Dependências
+## Dependências 
 
 O notebook atual usa principalmente:
 
