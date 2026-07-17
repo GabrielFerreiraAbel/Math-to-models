@@ -8,7 +8,7 @@ A ideia é organizar revisões, notebooks e experimentos práticos sobre os tema
 
 Este repositório funciona como um caderno de estudos técnico: cada notebook busca conectar a intuição matemática com implementação em Python, usando exemplos pequenos, visualizações e aplicações em ciência de dados.
 
-O foco principal é revisar conceitos fundamentais sem deixá-los soltos, mostrando como eles aparecem em problemas reais de modelagem, otimização, regressão, redução de dimensionalidade e análise de dados.
+O foco principal é revisar conceitos fundamentais sem deixá-los soltos, mostrando como eles aparecem em problemas reais de modelagem, otimização, regressão, redução de dimensionalidade e análise de dados. 
 
 ## Conteúdo Atual
 
