@@ -1,0 +1,10 @@
+# Cache bruto do FastF1 (pesado, regeravel) -- o dataset extraido vai como .parquet
+myprojects/f1_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
