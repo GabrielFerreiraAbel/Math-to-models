@@ -1,0 +1,11 @@
+# Requer Python >= 3.10
+#
+# Instalar com:
+#     pip install -r requirements.txt
+
+fastf1>=3.8          # traz junto: pandas, numpy, matplotlib, scipy, requests-cache...
+pyarrow>=15.0        # necessario para salvar/ler .parquet (nao vem com o fastf1)
+
+# Só se você também for analisar/rodar notebook na máquina local:
+# jupyter
+# seaborn
