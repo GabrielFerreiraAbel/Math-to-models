@@ -10,11 +10,11 @@ Para dar escala: 0,59 s por volta é aproximadamente a diferença entre carros d
 
 | Arquivo | O que é |
 |---|---|
-| `predict-lap-time.ipynb` | **O trabalho.** Análise, derivação da regressão e avaliação |
-| `voltas_f1.parquet` | O dataset — 26.604 voltas da temporada 2024 (1 MB) |
-| `extrair_voltas.py` | Gera o parquet a partir do cache do FastF1 |
-| `baixar_cache_f1.py` | Baixa as sessões da temporada para o cache local |
-| `requirements.txt` | `fastf1` e `pyarrow` (Python ≥ 3.10) |
+| [predict-lap-time.ipynb](predict-lap-time.ipynb) | **O trabalho.** Análise, derivação da regressão e avaliação |
+| [voltas_f1.parquet](voltas_f1.parquet) | O dataset — 26.604 voltas da temporada 2024 (1 MB) |
+| [extrair_voltas.py](extrair_voltas.py) | Gera o parquet a partir do cache do FastF1 |
+| [baixar_cache_f1.py](baixar_cache_f1.py) | Baixa as sessões da temporada para o cache local |
+| [requirements.txt](requirements.txt) | `fastf1` e `pyarrow` (Python ≥ 3.10) |
 
 O notebook lê direto o parquet, então **para ler e rodar a análise não é preciso baixar nada**.
 

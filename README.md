@@ -6,7 +6,7 @@ A ideia é não deixar os fundamentos soltos: derivar a matemática, implementar
 
 ## Por onde começar
 
-**Se você tem 5 minutos:** [Prevendo tempo de volta na Fórmula 1](myprojects/1.f1-lap-time-prediction/) — regressão derivada do zero, RMSE de 0,587 s contra baseline de 1,299 s. É o trabalho mais completo aqui.
+**Se você tem 5 minutos:** [predict-lap-time.ipynb](myprojects/1.f1-lap-time-prediction/predict-lap-time.ipynb) — prever tempo de volta na Fórmula 1 com regressão derivada do zero. RMSE de 0,587 s contra baseline de 1,299 s. É o trabalho mais completo aqui.
 
 **Se quer ver a base teórica:** os três `RESUMO.MD` de [álgebra linear](algebralinear/RESUMO.MD), [cálculo](calculo/RESUMO.MD) e [estatística](estatistica/RESUMO.MD). Cada conceito foi escrito depois de eu conseguir explicá-lo de volta, com as conexões entre os blocos explícitas.
 
@@ -30,11 +30,22 @@ A ideia é não deixar os fundamentos soltos: derivar a matemática, implementar
 
 Cada pasta de fundamento tem um notebook prático e um `RESUMO.MD` com a teoria conectada.
 
+## Notebooks
+
+| Notebook | Tema |
+|---|---|
+| [algebra_linear.ipynb](algebralinear/algebra_linear.ipynb) | transformações, projeção, mínimos quadrados, autovetores, PCA |
+| [calculo_otimizacao_visual.ipynb](calculo/calculo_otimizacao_visual.ipynb) | derivada, gradiente, gradient descent, Lagrange — versão visual |
+| [numpy.ipynb](machine_learning/1.intro/numpy.ipynb) | arrays, indexação, slicing, matrizes, aleatórios |
+| [pandas.ipynb](machine_learning/1.intro/pandas.ipynb) | DataFrame, Series, seleção, `loc`/`iloc`, filtros |
+| [predict-car-price.ipynb](machine_learning/2.predict-car-price/predict-car-price.ipynb) | regressão do zero, equação normal, regularização |
+| [predict-lap-time.ipynb](myprojects/1.f1-lap-time-prediction/predict-lap-time.ipynb) | projeto original de F1 — modelagem e investigação |
+
 ## Os dois projetos
 
-**[Preço de carros](machine_learning/2.predict-car-price/)** — regressão linear implementada do zero. Transformação logarítmica do alvo (cauda longa), evolução da fórmula do loop até a forma matricial $\hat{y} = Xw$, e a descoberta da armadilha da variável dummy: o RMSE explodiu para 498 por colinearidade perfeita, diagnosticada pelo número de condição da matriz e resolvida com regularização.
+**[predict-car-price.ipynb](machine_learning/2.predict-car-price/predict-car-price.ipynb)** — regressão linear implementada do zero. Transformação logarítmica do alvo (cauda longa), evolução da fórmula do loop até a forma matricial $\hat{y} = Xw$, e a descoberta da armadilha da variável dummy: o RMSE explodiu para 498 por colinearidade perfeita, diagnosticada pelo número de condição da matriz e resolvida com regularização.
 
-**[Tempo de volta na F1](myprojects/1.f1-lap-time-prediction/)** — problema escolhido por mim, dados via FastF1. Além do modelo, o notebook investiga *por que* os números saem como saem: um confundimento entre combustível e degradação de pneu que zera a correlação marginal, um viés de truncamento por estratégia de corrida, e a medição de quanto o corte aleatório de validação infla o resultado. Resultados negativos e hipóteses que falharam estão documentados.
+**[predict-lap-time.ipynb](myprojects/1.f1-lap-time-prediction/predict-lap-time.ipynb)** — problema escolhido por mim, dados via FastF1. Além do modelo, o notebook investiga *por que* os números saem como saem: um confundimento entre combustível e degradação de pneu que zera a correlação marginal, um viés de truncamento por estratégia de corrida, e a medição de quanto o corte aleatório de validação infla o resultado. Resultados negativos e hipóteses que falharam estão documentados.
 
 ## Como executar
 
@@ -63,9 +74,9 @@ Os notebooks rodam de cima a baixo sem precisar baixar nada — os dados já est
 
 | Bloco | Situação |
 |---|---|
-| Álgebra linear | base fechada, com `RESUMO.MD` e notebook |
-| Cálculo & otimização | base fechada, com `RESUMO.MD` e notebook visual |
-| Probabilidade & estatística | base fechada em `RESUMO.MD`, sem notebook prático ainda |
+| Álgebra linear | base fechada — [RESUMO.MD](algebralinear/RESUMO.MD) e [notebook](algebralinear/algebra_linear.ipynb) |
+| Cálculo & otimização | base fechada — [RESUMO.MD](calculo/RESUMO.MD) e [notebook visual](calculo/calculo_otimizacao_visual.ipynb) |
+| Probabilidade & estatística | base fechada em [RESUMO.MD](estatistica/RESUMO.MD), sem notebook prático ainda |
 | ML aplicado | preço de carros concluído |
 | Projetos originais | F1 (Monza 2024) concluído; próximo passo é expandir para a temporada inteira |
 
