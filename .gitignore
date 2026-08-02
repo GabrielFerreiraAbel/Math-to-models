@@ -1,5 +1,6 @@
-# Cache bruto do FastF1 (pesado, regeravel) -- o dataset extraido vai como .parquet
+# Caches brutos de dados (pesados e regeraveis) -- o dataset extraido vai como .parquet
 f1_cache/
+statsbomb_cache/
 
 # Jupyter
 .ipynb_checkpoints/
