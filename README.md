@@ -56,7 +56,7 @@ cd Matematica-aplicada
 python3 -m venv .venv
 source .venv/bin/activate
 
-pip install numpy pandas matplotlib seaborn scikit-learn jupyter
+pip install numpy pandas matplotlib seaborn scikit-learn jupyter 
 ```
 
 O projeto de F1 tem dependências próprias (`fastf1`, `pyarrow`) listadas no [requirements.txt](myprojects/1.f1-lap-time-prediction/requirements.txt) dele.
