@@ -1,4 +1,4 @@
-# Matemática Aplicada
+# Matemática Aplicada 
 
 Caderno de estudos de matemática aplicada a machine learning, construindo tudo do zero antes de usar biblioteca pronta.
 
